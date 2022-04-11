@@ -30,9 +30,7 @@ class mainController{
     }
     
     public function read(){
-        //require_once './view/header.php';
-        //require_once './view/welcome.php';
-        echo "Dit is de home pagina";
+        require_once 'view/home.php';
     }
 
     public function productsController(){
