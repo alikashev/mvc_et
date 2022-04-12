@@ -77,3 +77,50 @@
       flex-direction: column;
     }
   }
+
+  .outputTable {
+    margin: 10px;
+    border-spacing: 0;
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .outputTable th {
+    background-color: #333;
+    color: #f1f1f1;
+    padding: 5px;
+  }
+
+  .outputTable tr td {
+    padding: 10px;
+  }
+
+  .outputTable tr:nth-child(odd){
+    background: #ddd;
+  }
+
+  .outputTable tr:hover {
+    background-color: #1abc9c;
+    transition: ease-in-out 0.3s;
+    color: #f1f1f1;
+  }
+
+  .readBtn {
+    background-color: yellow;
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+  }
+  .updateBtn {
+    background-color: green;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+  }
+
+  .deleteBtn {
+    background-color: red;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+  }

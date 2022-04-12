@@ -16,6 +16,9 @@ class reservationsController {
             case 'create':
                 $this->collectCreateReservation();
                 break;
+            case 'createForm':
+                require 'view/form.php';
+                break;
             case 'read':
                 $this->collectReadReservation();
                 break;
@@ -34,6 +37,7 @@ class reservationsController {
 
     public function collectReadAllReservations() {
         $obj = $this->reservationsLogic->readAllReservations();
+        include 'view/main.php';
     }
 
     public function collectCreateReservation() {

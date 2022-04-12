@@ -27,3 +27,13 @@ function reservations() {
     xhttp.open("GET", "http://localhost/exellent_taste/index.php?controller=products");
     xhttp.send();
   }
+
+  function createForm() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      document.querySelector(".main").innerHTML =
+      this.responseText;
+    }
+    xhttp.open("GET", "http://localhost/exellent_taste/index.php?controller=reservations&action=createForm");
+    xhttp.send();
+  }

@@ -7,15 +7,15 @@ class reservationsLogic {
     
     public function __construct() {
         $this->dataHandler = new dataHandler("localhost", "mysql", "excellent_taste", "root", "");
-        $outputData = new outputData;
+        $this->outputData = new outputData();
     }
 
     public function readAllReservations(){
 
         try {
             
-            $query = "SELECT * FROM reservations";
-            $result = $this->dataHandler->readData($query);
+            $query = "SELECT * FROM reservations ";
+            $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
             return $this->outputData->createTable($results);
