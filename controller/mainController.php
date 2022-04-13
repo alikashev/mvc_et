@@ -25,11 +25,12 @@ class mainController{
             $this->ordersController();
             break;
         default:
-        $this->read();
+        $this->home();
         }
     }
     
-    public function read(){
+    public function home(){
+        $obj="";
         require_once 'view/home.php';
     }
 

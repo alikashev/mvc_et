@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excellent Taste</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/main.js"></script>
 </head>
 <body>
 
@@ -26,5 +25,15 @@
     <a href="javascript:reservations()">Reserveringen</a>
     <a href="javascript:orders()">Bestellingen</a>
     <a href="javascript:products()">Producten</a>
-    <a href="#">Gegevens</a>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown 
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+        <a href="#">Overzicht ober</a>
+        <a href="#">Overzicht barman</a>
+        <a href="#">Overzicht kok</a>
+        </div>
     </div>
+</div>
+<script src="assets/js/main.js"></script>
