@@ -32,8 +32,18 @@ class reservationsController {
             case 'readAll':
                 $this->collectReadAllReservation();
                 break;
+            case 'readupdate':
+                $id = $_REQUEST['id'];
+                $this->collectReadUpdateReservation($id);
+                break;
             case 'update':
-                $this->collectUpdateReservation();
+                $id = $_REQUEST['reservation_id'];
+                $naam = $_REQUEST['naam'];
+                $tel = $_REQUEST['telefoon'];
+                $email = $_REQUEST['email'];
+                $datum = $_REQUEST['datum'];
+                $tafel = $_REQUEST['tafel'];
+                $this->collectUpdateReservation($id, $naam, $tel, $email, $datum, $tafel);
                 break;
             case 'delete':
                 $id = $_REQUEST['id'];
@@ -61,6 +71,15 @@ class reservationsController {
 
     public function collectReadReservation($id) {
         $obj = $this->reservationsLogic->readReservation($id);
+        include 'view/home.php';
+    }
+
+    public function collectReadUpdateReservation($id){
+        $obj = $this->reservationsLogic->readUpdateReservation($id);
+        include 'view/home.php';
+    }
+    public function collectUpdateReservation($id, $naam, $tel, $email, $datum, $tafel){
+        $obj = $this->reservationsLogic->updateReservation($id, $naam, $tel, $email, $datum, $tafel);
         include 'view/home.php';
     }
 }

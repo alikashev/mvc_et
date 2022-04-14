@@ -26,7 +26,7 @@ class outputData {
                     $html .=    "<td>".$columns."</td>";
                 }
                 $html .=    "<td> <a class='readBtn' href='index.php?controller=reservations&action=read&id=$id'>Details</td>";
-                $html .=    "<td> <a class='updateBtn' href='index.php?controller=reservations&action=read&id=$id'>Update</td>";
+                $html .=    "<td> <a class='updateBtn' href='index.php?controller=reservations&action=readupdate&id=$id'>Update</td>";
                 $html .=    "<td> <a class='deleteBtn' href='index.php?controller=reservations&action=delete&id=$id'>Delete</td>";
 
             $html .=    "</tr>";
@@ -40,17 +40,30 @@ class outputData {
     }
 
     public function createDetailsView($results) {
-
-        //html =     "<div class'detailsview'>";
-
+        $html = "";
         foreach ($results[0] as $key => $value) {
             $html .=    "<h2>".$key."</h2>"."<p>".$value."</p>";
         }
-        //$html .=     "</div";
-
         $html .= "<a href=\"index.php\">Terug</a>";
         
         return $html;
+    }
+
+    public function createUpdateView($results) {
+
+        var_dump($results);
+
+        $html = "<form action=\"index.php?controller=reservations&action=update\" method=\"POST\">";
+        foreach ($results[0] as $key => $value) {
+            $html .=    "<label>".$key."</label><br>";
+            $html .=    "<input name=\"$key\" type=\"text\"value=".$value."><br>";
+        }
+        $html .=    "<input type='submit' value='Stuur'><br><br>";
+        $html .=    "<form>";
+        $html .= "<a href=\"index.php\">Terug</a>";
+        
+        return $html;
+
     }
 }
 

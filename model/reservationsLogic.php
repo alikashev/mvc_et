@@ -61,7 +61,38 @@ class reservationsLogic {
         }
     }
 
-    public function updateReservation(){}
+    public function readUpdateReservation($id){
+
+        try {
+            
+            $query = "SELECT * FROM reservations ";
+            $query .= "WHERE reservation_id=$id";
+            $result = $this->dataHandler->readsData($query);
+            $results = $result->fetchAll();
+            return $this->outputData->createUpdateView($results);
+
+        } catch (\Exeption $e) {
+            throw $e;
+        }
+        
+    }
+
+    public function updateReservation($id, $naam, $tel, $email, $datum, $tafel){
+
+        try {
+            
+            $query = "UPDATE reservations ";
+            $query .= "SET naam = '$naam', telefoon = '$tel', email = '$email', datum = '$datum', tafel = '$tafel' ";
+            $query .= "WHERE reservation_id=$id";
+            $this->dataHandler->updateData($query);
+            $results = "Succesvol geupdate";
+            return $results;
+
+        } catch (\Exeption $e) {
+            throw $e;
+        }
+        
+    }
     public function deleteReservation($id){
 
         try {
