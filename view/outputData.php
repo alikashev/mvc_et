@@ -29,7 +29,7 @@ class outputData {
                 $html .=    "<td> <a class='readBtn' href='index.php?controller=reservations&action=read&id=$id'>Details</td>";
                 $html .=    "<td> <a class='updateBtn' href='index.php?controller=reservations&action=readupdate&id=$id'>Update</td>";
                 $html .=    "<td> <a class='deleteBtn' href='index.php?controller=reservations&action=delete&id=$id'>Delete</td>";
-                $html .=    "<td> <a class='orderBtn' href=\"index.php?controller=orders&reservation_id=$id\">Bestelling</td>"; 
+                $html .=    "<td> <button class='orderBtn' onclick=loadPage(\"index.php?controller=orders&id=$id\")>Bestelling</button></td>";  
             $html .=    "</tr>";
 
         }

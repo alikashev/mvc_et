@@ -2,7 +2,8 @@
 
 class ordersController {
     public function __construct() {
-        echo "Orders here";
+        $id = $_REQUEST['id'];
+        echo "Orders here".$id;
     }
 
     public function handleRequest(){}
