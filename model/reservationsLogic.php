@@ -14,7 +14,7 @@ class reservationsLogic {
 
         try {
             
-            $query = "SELECT * FROM reservations ";
+            $query = "SELECT * FROM reserveringen ";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
@@ -48,13 +48,11 @@ class reservationsLogic {
 
         try {
             
-            $query = "SELECT * FROM reservations ";
-            $query .= "WHERE reservation_id=$id";
+            $query = "SELECT * FROM reserveringen ";
+            $query .= "WHERE reserveringID=$id";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
             return $this->outputData->createDetailsView($results);
-
-            header('Location: index.php');
 
         } catch (\Exeption $e) {
             throw $e;
@@ -65,8 +63,8 @@ class reservationsLogic {
 
         try {
             
-            $query = "SELECT * FROM reservations ";
-            $query .= "WHERE reservation_id=$id";
+            $query = "SELECT * FROM reserveringen ";
+            $query .= "WHERE reserveringID=$id";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
             return $this->outputData->createUpdateView($results);
@@ -97,11 +95,9 @@ class reservationsLogic {
 
         try {
             
-            $query = "DELETE FROM reservations ";
-            $query .= "WHERE reservation_id=$id";
+            $query = "DELETE FROM reserveringen ";
+            $query .= "WHERE reserveringID=$id";
             $this->dataHandler->deleteData($query);
-
-            header('Location: index.php');
 
         } catch (\Exeption $e) {
             throw $e;

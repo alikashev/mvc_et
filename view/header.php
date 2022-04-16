@@ -22,13 +22,10 @@
 
     <!-- Navigation Bar -->
     <div class="navbar">
-    <a href="javascript:reservations()">Reserveringen</a>
-    <a href="javascript:orders()">Bestellingen</a>
-    <a href="javascript:products()">Producten</a>
+    <a href="javascript:loadPage('index.php?controller=reservations')">Reserveringen</a>
+    <a href="javascript:loadPage('index.php?controller=products')">Producten</a>
     <div class="dropdown">
-        <button class="dropbtn">Dropdown 
-        <i class="fa fa-caret-down"></i>
-        </button>
+        <button class="dropbtn">Overzichten</button>
         <div class="dropdown-content">
         <a href="#">Overzicht ober</a>
         <a href="#">Overzicht barman</a>

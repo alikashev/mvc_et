@@ -71,16 +71,16 @@ class reservationsController {
 
     public function collectReadReservation($id) {
         $obj = $this->reservationsLogic->readReservation($id);
-        include 'view/home.php';
+        include 'view/main.php';
     }
 
     public function collectReadUpdateReservation($id){
         $obj = $this->reservationsLogic->readUpdateReservation($id);
-        include 'view/home.php';
+        include 'view/main.php';
     }
     public function collectUpdateReservation($id, $naam, $tel, $email, $datum, $tafel){
         $obj = $this->reservationsLogic->updateReservation($id, $naam, $tel, $email, $datum, $tafel);
-        include 'view/home.php';
+        include 'view/main.php';
     }
 }
 ?>

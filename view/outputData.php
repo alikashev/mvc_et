@@ -19,16 +19,16 @@ class outputData {
         $html .=    "</tr>";
         
         foreach ($rows as $row) {
-            $id = $row['reservation_id'];
+            $id = $row['reserveringID'];
 
             $html .=    "<tr>";
 
                 foreach ($row as $columns) {
                     $html .=    "<td>".$columns."</td>";
                 }
-                $html .=    "<td> <a class='readBtn' href='index.php?controller=reservations&action=read&id=$id'>Details</td>";
-                $html .=    "<td> <a class='updateBtn' href='index.php?controller=reservations&action=readupdate&id=$id'>Update</td>";
-                $html .=    "<td> <a class='deleteBtn' href='index.php?controller=reservations&action=delete&id=$id'>Delete</td>";
+                $html .=    "<td> <button class='readBtn' onclick=loadPage('index.php?controller=reservations&action=read&id=$id')>Details</button></td>";
+                $html .=    "<td> <button class='updateBtn' onclick=loadPage('index.php?controller=reservations&action=readupdate&id=$id')>Update</button></td>";
+                $html .=    "<td> <button class='deleteBtn' onclick=loadPage('index.php?controller=reservations&action=delete&id=$id')>Delete</td>";
                 $html .=    "<td> <button class='orderBtn' onclick=loadPage(\"index.php?controller=orders&id=$id\")>Bestelling</button></td>";  
             $html .=    "</tr>";
 
@@ -45,14 +45,12 @@ class outputData {
         foreach ($results[0] as $key => $value) {
             $html .=    "<h2>".$key."</h2>"."<p>".$value."</p>";
         }
-        $html .= "<a href=\"index.php\">Terug</a>";
+        $html .=    "<button onclick=loadPage(\"index.php?controller=reservations\")>Terug</button>";
         
         return $html;
     }
 
     public function createUpdateView($results) {
-
-        var_dump($results);
 
         $html = "<form action=\"index.php?controller=reservations&action=update\" method=\"POST\">";
         foreach ($results[0] as $key => $value) {
@@ -60,8 +58,9 @@ class outputData {
             $html .=    "<input name=\"$key\" type=\"text\"value=".$value."><br>";
         }
         $html .=    "<input type='submit' value='Stuur'><br><br>";
-        $html .=    "<form>";
-        $html .= "<a href=\"index.php\">Terug</a>";
+        $html .=    "</form>";
+
+        $html .=    "<button onclick=loadPage(\"index.php?controller=reservations\")>Terug</button>";
         
         return $html;
 
