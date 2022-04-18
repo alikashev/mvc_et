@@ -3,22 +3,22 @@
 require_once 'model/dataHandler.php';
 require_once 'view/outputData.php';
 
-class reservationsLogic {
+class productsLogic {
     
     public function __construct() {
         $this->dataHandler = new DataHandler("localhost", "mysql", "excellent_taste", "root", "");
         $this->outputData = new outputData();
     }
 
-    public function readAllReservations(){
+    public function readlAllProducts(){
 
         try {
             
-            $query = "SELECT * FROM reserveringen ";
+            $query = "SELECT * FROM menuitems ";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
-            return $this->outputData->createTable($results);
+            return $this->outputData->createProductsView($results);
 
         } catch (\Exeption $e) {
             throw $e;
@@ -48,11 +48,13 @@ class reservationsLogic {
 
         try {
             
-            $query = "SELECT * FROM reserveringen ";
-            $query .= "WHERE reserveringID=$id";
+            $query = "SELECT * FROM reservations ";
+            $query .= "WHERE reservation_id=$id";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
             return $this->outputData->createDetailsView($results);
+
+            header('Location: index.php');
 
         } catch (\Exeption $e) {
             throw $e;
@@ -63,8 +65,8 @@ class reservationsLogic {
 
         try {
             
-            $query = "SELECT * FROM reserveringen ";
-            $query .= "WHERE reserveringID=$id";
+            $query = "SELECT * FROM reservations ";
+            $query .= "WHERE reservation_id=$id";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
             return $this->outputData->createUpdateView($results);
@@ -95,9 +97,11 @@ class reservationsLogic {
 
         try {
             
-            $query = "DELETE FROM reserveringen ";
-            $query .= "WHERE reserveringID=$id";
+            $query = "DELETE FROM reservations ";
+            $query .= "WHERE reservation_id=$id";
             $this->dataHandler->deleteData($query);
+
+            header('Location: index.php');
 
         } catch (\Exeption $e) {
             throw $e;

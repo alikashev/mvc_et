@@ -1,24 +1,24 @@
 <?php
 
-require 'model/dataHandler.php';
-require 'view/outputData.php';
+require_once 'model/dataHandler.php';
+require_once 'view/outputData.php';
 
 class ordersLogic {
-    
+      
     public function __construct() {
-        $this->dataHandler = new dataHandler("localhost", "mysql", "excellent_taste", "root", "");
+        $this->dataHandler = new DataHandler("localhost", "mysql", "excellent_taste", "root", "");
         $this->outputData = new outputData();
     }
 
-    public function readAllReservations(){
+    public function createOrderLine($id){
 
         try {
             
-            $query = "SELECT * FROM reservations ";
+            $query = "SELECT menuitem, prijs FROM menuitems WHERE menuitemcode=$id";
             $result = $this->dataHandler->readsData($query);
             $results = $result->fetchAll();
 
-            return $this->outputData->createTable($results);
+            return $this->outputData->createOrderView($results);
 
         } catch (\Exeption $e) {
             throw $e;

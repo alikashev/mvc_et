@@ -176,3 +176,29 @@
     color: white;
     padding: 10px;
   }
+
+  .outputTable-products {
+    margin: 10px;
+    border-spacing: 0;
+    padding: 15px;
+  }
+
+  .outputTable-products th {
+    background-color: #333;
+    color: #f1f1f1;
+    padding: 5px;
+  }
+
+  .outputTable-products tr td {
+    padding: 5px;
+  }
+
+  .outputTable-products tr:nth-child(odd){
+    background: #ddd;
+  }
+
+  .outputTable-products tr:hover {
+    background-color: royalblue;
+    transition: ease-in-out 0.3s;
+    color: #f1f1f1;
+  }
